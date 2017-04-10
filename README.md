@@ -1,10 +1,10 @@
-# Seminar-UDPT - *Tên đề tài*
+# Seminar-UDPT - *ANGULAR_APP*
 
-**Tên đề tài** là một repository trong đề tài tìm hiểu của lớp Ứng dụng phân tán.
+**ANGULAR_APP** là một repository trong đề tài tìm hiểu của lớp Ứng dụng phân tán.
 
 Thành viên:
-* [ ] **1312340** Tên sinh viên 1 (tên tài khoản github)
-* [ ] **MSSV2** Tên sinh viên 2 (tên tài khoản github)
+* [x] **1312340** Lê Quốc Tấn Lộc (1312340)
+* [x] **1312393** Phùng Hải Nguyên  (1312393)
 
 URL: **Link github page**
 
