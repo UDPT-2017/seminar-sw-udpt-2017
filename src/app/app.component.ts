@@ -4,9 +4,9 @@ import { WorkingListComponent } from './working-list.component';
 @Component({
   selector: 'my-app',
   template: `
-      This is an app component
+      Hello ,
       <working-list></working-list>
-  `,
-  directives: [WorkingListComponent]
+  `
+
 })
 export class AppComponent  {  }
