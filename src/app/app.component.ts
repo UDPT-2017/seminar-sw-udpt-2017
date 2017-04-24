@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
+import { WorkingListComponent } from './working-list.component';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  template: `
+      This is an app component
+      <working-list></working-list>
+  `,
+  directives: [WorkingListComponent]
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  {  }

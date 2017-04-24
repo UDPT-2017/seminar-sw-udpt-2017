@@ -6,16 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+var working_list_component_1 = require("./working-list.component");
 var AppComponent = (function () {
     function AppComponent() {
-        this.name = 'Angular';
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<h1>Hello {{name}}</h1>",
+        template: "\n      This is an app component\n      <working-list></working-list>\n  ",
+        directives: [working_list_component_1.WorkingListComponent]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
