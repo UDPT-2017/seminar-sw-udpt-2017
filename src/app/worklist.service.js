@@ -6,17 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "this is my demo!";
+var mock_worklists_1 = require("./mock-worklists");
+var WorkListService = (function () {
+    function WorkListService() {
     }
-    return AppComponent;
+    WorkListService.prototype.getWorkLists = function () {
+        return Promise.resolve(mock_worklists_1.workingListItems);
+    };
+    return WorkListService;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: "\n   <h1>{{title}}</h1>\n   <button> <a routerLink=\"/worklists\">To-Do Things</a></button>\n    <button> <a routerLink=\"/imps\">important works</a></button>\n   <router-outlet></router-outlet>\n  "
-    })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+WorkListService = __decorate([
+    core_1.Injectable()
+], WorkListService);
+exports.WorkListService = WorkListService;
+//# sourceMappingURL=worklist.service.js.map

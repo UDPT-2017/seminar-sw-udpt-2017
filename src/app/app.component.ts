@@ -1,32 +1,17 @@
-import { Component } from '@angular/core';
 
-import {WorkList} from './working';
-import {WorkingService} from '.working.service'
+
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `
-      Hello ,
-      <working-list></working-list>
+  template:`
+   <h1>{{title}}</h1>
+   <button> <a routerLink="/worklists">To-Do Things</a></button>
+    <button> <a routerLink="/imps">important works</a></button>
+   <router-outlet></router-outlet>
   `
-
 })
-export class AppComponent {
-  title = 'Working List';
-  works: WorkList[];
-  selectedWork: WorkList;
+export class AppComponent{
+	title = "this is my demo!";
 
-  constructor(private workingService: WorkingService) { }
-
-  getworks(): void {
-    this.WorkingService.getworks().then(works => this.works = works);
-  }
-
-  ngOnInit(): void {
-    this.getworks();
-  }
-
-  onSelect(work: WorkList): void {
-    this.selectedWork = work;
-  }
 }
