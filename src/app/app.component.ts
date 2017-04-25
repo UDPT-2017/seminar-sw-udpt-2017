@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { WorkingListComponent } from './working-list.component';
+
+import {WorkList} from './working';
+import {WorkingService} from '.working.service'
 
 @Component({
   selector: 'my-app',
@@ -9,4 +11,22 @@ import { WorkingListComponent } from './working-list.component';
   `
 
 })
-export class AppComponent  {  }
+export class AppComponent {
+  title = 'Working List';
+  works: WorkList[];
+  selectedWork: WorkList;
+
+  constructor(private workingService: WorkingService) { }
+
+  getworks(): void {
+    this.WorkingService.getworks().then(works => this.works = works);
+  }
+
+  ngOnInit(): void {
+    this.getworks();
+  }
+
+  onSelect(work: WorkList): void {
+    this.selectedWork = work;
+  }
+}
