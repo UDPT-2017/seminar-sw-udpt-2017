@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
-import { WorkingListComponent } from './working-list.component';
+
+
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `
-      Hello ,
-      <working-list></working-list>
+  template:`
+   <h1>{{title}}</h1>
+   <button> <a routerLink="/worklists">To-Do Things</a></button>
+    <button> <a routerLink="/imps">important works</a></button>
+   <router-outlet></router-outlet>
   `
-
 })
-export class AppComponent  {  }
+export class AppComponent{
+	title = "this is my demo!";
+
+}

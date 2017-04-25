@@ -8,8 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var working_list_component_1 = require("./working-list.component");
+var worklists_component_1 = require("./worklists.component");
+var worklist_service_1 = require("./worklist.service");
+var importants_component_1 = require("./importants.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -17,8 +21,26 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, working_list_component_1.WorkingListComponent],
+        imports: [platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            router_1.RouterModule.forRoot([
+                {
+                    path: 'worklists',
+                    component: worklists_component_1.WorkListsComponent
+                },
+                {
+                    path: 'imps',
+                    component: importants_component_1.ImpComponent
+                },
+                {
+                    path: '',
+                    redirectTo: '/imps',
+                    pathMatch: 'full'
+                }
+            ])
+        ],
+        declarations: [app_component_1.AppComponent, working_list_component_1.WorkingListComponent, worklists_component_1.WorkListsComponent, importants_component_1.ImpComponent],
+        providers: [worklist_service_1.WorkListService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
