@@ -1,0 +1,11 @@
+
+
+<div *ngIf="worklist">
+      <h2>{{worklist.name}} details!</h2>
+      <div><label>stt: </label>{{worklist.stt}}</div>
+      <div>
+        <label>name: </label>
+        <input [(ngModel)]="worklist.name" placeholder="name"/>
+      </div>
+       <button (click)="goBack()">Back</button>
+    </div>

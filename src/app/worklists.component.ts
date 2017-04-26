@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { WorkingListComponent } from './working-list.component';
+import { Router }   from '@angular/router';
 
 import { WorkList } from './worklist';
 import { WorkListService } from './worklist.service';
@@ -7,25 +8,18 @@ import { WorkListService } from './worklist.service';
 
 @Component({
   selector: 'my-worklists',
-  template: `
-    <h2>My To-Do List</h2>
-    <ul class="worklists">
-      <li *ngFor="let worklist of worklists"
-        [class.selected]="worklist === selectedItem"
-        (click)="onSelect(worklist)">
-        <span class="badge">{{worklist.stt}}</span> {{worklist.name}}
-      </li>
-    </ul>
-    <working-list [worklist]="selectedItem"></working-list>
-  `
-
+  templateUrl:'./worklists.component.html',
+  styleUrls: [ './worklists.component.css' ]
 })
 export class WorkListsComponent implements OnInit  { 
 
 worklists: WorkList[];
 selectedItem: WorkList;
 
-constructor(private worklistService: WorkListService) { }
+constructor(
+  private worklistService: WorkListService,
+  private router: Router
+  ) { }
 
 // worklists = workingListItems;
  ngOnInit(): void {
@@ -36,6 +30,8 @@ constructor(private worklistService: WorkListService) { }
   this.selectedItem = worklist;
 }
 
-
+gotoDetail(): void {
+  this.router.navigate(['/detail', this.selectedItem.stt]);
+}
 
  }
