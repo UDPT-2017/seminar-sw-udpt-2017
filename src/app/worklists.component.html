@@ -1,0 +1,14 @@
+<h2>My To-Do List</h2>
+    <ul class="worklists">
+      <li *ngFor="let worklist of worklists"
+        [class.selected]="worklist === selectedItem"
+        (click)="onSelect(worklist)">
+        <span class="badge">{{worklist.stt}}</span> {{worklist.name}}
+      </li>
+    </ul>
+   <div *ngIf="selectedItem">
+  <h2>
+    {{selectedItem.name | uppercase}} ???
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

@@ -8,6 +8,7 @@ import { WorkingListComponent } from './working-list.component';
 import { WorkListsComponent } from './worklists.component';
 import { WorkListService } from './worklist.service';
 import { ImpComponent } from './importants.component';
+
 @NgModule({
   imports:      [ BrowserModule ,
    FormsModule,
@@ -24,7 +25,11 @@ import { ImpComponent } from './importants.component';
   path: '',
   redirectTo: '/imps',
   pathMatch: 'full'
-	}
+	},
+	{
+  path: 'detail/:stt',
+  component:  WorkingListComponent
+	},
 ])
    ],
   declarations: [ AppComponent,  WorkingListComponent, WorkListsComponent, ImpComponent],

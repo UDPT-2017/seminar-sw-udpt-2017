@@ -13,6 +13,10 @@ var WorkListService = (function () {
     WorkListService.prototype.getWorkLists = function () {
         return Promise.resolve(mock_worklists_1.workingListItems);
     };
+    WorkListService.prototype.getWorkList = function (stt) {
+        return this.getWorkLists()
+            .then(function (worklists) { return worklists.find(function (worklist) { return worklist.stt === stt; }); });
+    };
     return WorkListService;
 }());
 WorkListService = __decorate([

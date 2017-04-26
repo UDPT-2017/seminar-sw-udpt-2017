@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var worklist_service_1 = require("./worklist.service");
 var WorkListsComponent = (function () {
-    function WorkListsComponent(worklistService) {
+    function WorkListsComponent(worklistService, router) {
         this.worklistService = worklistService;
+        this.router = router;
     }
     // worklists = workingListItems;
     WorkListsComponent.prototype.ngOnInit = function () {
@@ -22,14 +24,19 @@ var WorkListsComponent = (function () {
     WorkListsComponent.prototype.onSelect = function (worklist) {
         this.selectedItem = worklist;
     };
+    WorkListsComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['/detail', this.selectedItem.stt]);
+    };
     return WorkListsComponent;
 }());
 WorkListsComponent = __decorate([
     core_1.Component({
         selector: 'my-worklists',
-        template: "\n    <h2>My To-Do List</h2>\n    <ul class=\"worklists\">\n      <li *ngFor=\"let worklist of worklists\"\n        [class.selected]=\"worklist === selectedItem\"\n        (click)=\"onSelect(worklist)\">\n        <span class=\"badge\">{{worklist.stt}}</span> {{worklist.name}}\n      </li>\n    </ul>\n    <working-list [worklist]=\"selectedItem\"></working-list>\n  "
+        templateUrl: './worklists.component.html',
+        styleUrls: ['./worklists.component.css']
     }),
-    __metadata("design:paramtypes", [worklist_service_1.WorkListService])
+    __metadata("design:paramtypes", [worklist_service_1.WorkListService,
+        router_1.Router])
 ], WorkListsComponent);
 exports.WorkListsComponent = WorkListsComponent;
 //# sourceMappingURL=worklists.component.js.map

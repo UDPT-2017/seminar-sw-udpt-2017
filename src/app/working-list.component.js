@@ -9,10 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var common_1 = require("@angular/common");
 var worklist_1 = require("./worklist");
+var worklist_service_1 = require("./worklist.service");
+require("rxjs/add/operator/switchMap");
 var WorkingListComponent = (function () {
-    function WorkingListComponent() {
+    function WorkingListComponent(worklistService, route, location) {
+        this.worklistService = worklistService;
+        this.route = route;
+        this.location = location;
     }
+    WorkingListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params
+            .switchMap(function (params) { return _this.worklistService.getWorkList(+params['stt']); })
+            .subscribe(function (worklist) { return _this.worklist = worklist; });
+    };
+    WorkingListComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     return WorkingListComponent;
 }());
 __decorate([
@@ -22,8 +38,11 @@ __decorate([
 WorkingListComponent = __decorate([
     core_1.Component({
         selector: "working-list",
-        template: "\n    <div *ngIf=\"worklist\">\n      <h2>{{worklist.name}} details!</h2>\n      <div><label>stt: </label>{{worklist.stt}}</div>\n      <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"worklist.name\" placeholder=\"name\"/>\n      </div>\n    </div>\n \n  "
-    })
+        templateUrl: './working-list.component.html'
+    }),
+    __metadata("design:paramtypes", [worklist_service_1.WorkListService,
+        router_1.ActivatedRoute,
+        common_1.Location])
 ], WorkingListComponent);
 exports.WorkingListComponent = WorkingListComponent;
 //<input type="text" [{ngModel}]="selectedItem">

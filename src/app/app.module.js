@@ -36,7 +36,11 @@ AppModule = __decorate([
                     path: '',
                     redirectTo: '/imps',
                     pathMatch: 'full'
-                }
+                },
+                {
+                    path: 'detail/:stt',
+                    component: working_list_component_1.WorkingListComponent
+                },
             ])
         ],
         declarations: [app_component_1.AppComponent, working_list_component_1.WorkingListComponent, worklists_component_1.WorkListsComponent, importants_component_1.ImpComponent],
