@@ -1,11 +1,13 @@
 
 
-<div *ngIf="worklist">
+<div
+ *ngIf="worklist">
       <h2>{{worklist.name}} details!</h2>
-      <div><label>stt: </label>{{worklist.stt}}</div>
+      <div><label>id: </label>{{worklist.id}}</div>
       <div>
         <label>name: </label>
         <input [(ngModel)]="worklist.name" placeholder="name"/>
       </div>
        <button (click)="goBack()">Back</button>
+       <button (click)="save()">Save</button>
     </div>

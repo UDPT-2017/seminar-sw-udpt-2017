@@ -23,11 +23,16 @@ var WorkingListComponent = (function () {
     WorkingListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params
-            .switchMap(function (params) { return _this.worklistService.getWorkList(+params['stt']); })
+            .switchMap(function (params) { return _this.worklistService.getWorkList(+params['id']); })
             .subscribe(function (worklist) { return _this.worklist = worklist; });
     };
     WorkingListComponent.prototype.goBack = function () {
         this.location.back();
+    };
+    WorkingListComponent.prototype.save = function () {
+        var _this = this;
+        this.worklistService.update(this.worklist)
+            .then(function () { return _this.goBack(); });
     };
     return WorkingListComponent;
 }());
@@ -48,5 +53,5 @@ exports.WorkingListComponent = WorkingListComponent;
 //<input type="text" [{ngModel}]="selectedItem">
 // <button (click)="onDeleteItem()">Delete Item</button><br>
 // <input type="text" #shoppingListItem>
-// <button (click)="onAddItem(shoppingListItem)">Add Item</button> 
+// <button (click)="onAddItem(shoppingListItem)">Add Item</button>
 //# sourceMappingURL=working-list.component.js.map
