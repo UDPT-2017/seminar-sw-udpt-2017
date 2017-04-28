@@ -16,6 +16,29 @@ var WorkListsComponent = (function () {
         this.worklistService = worklistService;
         this.router = router;
     }
+    WorkListsComponent.prototype.add = function (name) {
+        var _this = this;
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this.worklistService.create(name)
+            .then(function (worklist) {
+            _this.worklists.push(worklist);
+            _this.selectedItem = null;
+        });
+    };
+    WorkListsComponent.prototype.delete = function (worklist) {
+        var _this = this;
+        this.worklistService
+            .delete(worklist.id)
+            .then(function () {
+            _this.worklists = _this.worklists.filter(function (h) { return h !== worklist; });
+            if (_this.selectedItem === worklist) {
+                _this.selectedItem = null;
+            }
+        });
+    };
     // worklists = workingListItems;
     WorkListsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -25,7 +48,7 @@ var WorkListsComponent = (function () {
         this.selectedItem = worklist;
     };
     WorkListsComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['/detail', this.selectedItem.stt]);
+        this.router.navigate(['/detail', this.selectedItem.id]);
     };
     return WorkListsComponent;
 }());

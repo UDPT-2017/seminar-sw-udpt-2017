@@ -1,9 +1,20 @@
 <h2>My To-Do List</h2>
+<div>
+  <label>Ten cong viec:</label> <input #worklistName />
+  <button (click)="add(worklistName.value); worklistName.value=''">
+    Add
+  </button>
+</div>
     <ul class="worklists">
       <li *ngFor="let worklist of worklists"
         [class.selected]="worklist === selectedItem"
         (click)="onSelect(worklist)">
-        <span class="badge">{{worklist.stt}}</span> {{worklist.name}}
+        <span class="badge">{{worklist.id}}</span> 
+        <span>{{worklist.name}}</span>
+        <button class="delete"
+        (click)="delete(worklist); $event.stopPropagation()">x</button>
+        <br>
+        <br>
       </li>
     </ul>
    <div *ngIf="selectedItem">

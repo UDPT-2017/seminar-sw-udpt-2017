@@ -25,14 +25,17 @@ export class WorkingListComponent implements OnInit{
 ) {}
    ngOnInit(): void {
   this.route.params
-    .switchMap((params: Params) => this.worklistService.getWorkList(+params['stt']))
+    .switchMap((params: Params) => this.worklistService.getWorkList(+params['id']))
     .subscribe(worklist => this.worklist = worklist);
   }
   goBack(): void {
   this.location.back();
 }
 
-
+save(): void {
+  this.worklistService.update(this.worklist)
+    .then(() => this.goBack());
+}
   
   //onDeleteItem(selectedItem: WorkList) {
       //this.workingListItems.splice(this.workingListItems.indexOf(selectedItem), 1);

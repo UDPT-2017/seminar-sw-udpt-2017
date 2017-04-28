@@ -1,6 +1,6 @@
 export class WorkList {
  
-   public stt: number;
+   public id: number;
    public name: string;
   
 }

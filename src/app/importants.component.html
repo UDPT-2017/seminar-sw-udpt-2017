@@ -1,8 +1,9 @@
 <h3>Important Works</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let worklist of worklists" [routerLink]="['/detail', worklist.stt]"  class="col-1-4">
+  <a *ngFor="let worklist of worklists" [routerLink]="['/detail', worklist.id]"  class="col-1-4">
     <div class="module worklist">
      <span class ="badge"> <h4>{{worklist.name}}</h4></span>
     </div>
   </a>
+  <work-search></work-search>
 </div>
