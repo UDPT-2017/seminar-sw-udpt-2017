@@ -24,12 +24,22 @@ Yêu cầu **bắt buộc**
 * [ ] Tạo github page để viết lại báo cáo cho nội dung đề tài tìm hiểu
 
 Các **nội dung lý thuyết** dự định tìm hiểu. Nhóm liệt kê các nội dung đã làm được vào bên dưới và check vào các nội dung đã tìm hiểu được.
-* [ ] Nội dung 1
-* [ ] Nội dung 2
+* [x] Tại sao gọi là angular  mà không phải angularjs.
+* [x] Ngôn ngữ TypeScipt.
+* [x] Công dụng của Angular .
+* [x] Các thành phần cơ bản của Angular.
+* [x] Component.
+* [x] Module.
+* [x] Services.
+* [x] Routing.
+* [x] Tương tác với wep API.
 
 Các **chức năng của demo** đã thực hiện hoặc dự kiến thực hiện. Nhóm check vào các chức năng đã làm
-* [ ] Chức năng 1
-* [ ] Chức năng 2
+* [x] Single page thể hiện 2 mục : các việc cần làm và các việc quan trọng.
+* [x] Xem chi tiết từng công việc và sửa được .
+* [x] Xóa công việc trên danh sách.
+* [x] Thêm công việc vào danh sách.
+* [x] Autocomplete Search theo tên công việc.(Observable  RxJs).
 
 ## Demo
 
