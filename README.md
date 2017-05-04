@@ -22,10 +22,11 @@ Yêu cầu **bắt buộc**
 * [x] Source code demo
 * [ ] Slide thuyết trình
 * [ ] Tạo github page để viết lại báo cáo cho nội dung đề tài tìm hiểu
+* [x] Tạo Wiki để báo cáo những gì đã tìm hiểu
 
 Các **nội dung lý thuyết** dự định tìm hiểu. Nhóm liệt kê các nội dung đã làm được vào bên dưới và check vào các nội dung đã tìm hiểu được.
-* [x] Tại sao gọi là angular  mà không phải angularjs.
-* [x] Ngôn ngữ TypeScipt.
+* [x] Sơ lược về Angular 2 và Angularjs 1.x.
+* [x] Ngôn ngữ TypeScript.
 * [x] Công dụng của Angular .
 * [x] Các thành phần cơ bản của Angular.
 * [x] Component.
